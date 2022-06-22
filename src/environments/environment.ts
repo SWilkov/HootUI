@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  apis: {
+    motLookup: 'http://localhost:7057/api/mot-query'
+  }
 };
 
 /*
