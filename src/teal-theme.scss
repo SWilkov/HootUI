@@ -1,0 +1,85 @@
+@use '../node_modules/@angular/material' as mat;
+
+$black-87-opacity: rgba(black, 0.87);
+
+$teal-palette: (
+  50: #e6f4ee,
+  100: #C2e5D4,
+  200: #9CD4B9,
+  300: #73c49e,
+  400: #53b88a,
+  500: #27ac75,
+  600: #219d6a,
+  700: #1a8b5d,
+  800: #147a51,
+  900: #095a3a,
+
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    400: white,
+    500: rgba(white, 0.87),
+    600: rgba(white, 0.87),
+    700: rgba(white, 0.87),
+    800: rgba(white, 0.87),
+    900: rgba(white, 0.87)
+  )
+);
+
+$red-accent-palette: (
+  50: #FFEAEE,
+  100: #FFCAD2,
+  200: #EF949A,
+  300: #E56A73,
+  400: #F04351,
+  500: #F52937,
+  600: #E61C36,
+  700: #D40B30,
+  800: #C70028,
+  900: #B9001C,
+
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    400: white,
+    500: rgba(white, 0.87),
+    600: rgba(white, 0.87),
+    700: rgba(white, 0.87),
+    800: rgba(white, 0.87),
+    900: rgba(white, 0.87)
+  )
+);
+
+@include mat.core();
+
+$my-primary: mat.define-palette($teal-palette, 300);
+$my-accent: mat.define-palette($red-accent-palette, 500);
+$my-warn: mat.define-palette(mat.$red-palette);
+
+$my-theme: mat.define-light-theme((
+  color: (
+    primary: $my-primary,
+    accent: $my-accent,
+    warn: $my-warn
+  )
+));
+
+$my-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+      warn: $my-warn
+    )
+  )
+);
+
+@include mat.all-component-themes($my-theme);
+
+.darkmode {
+  @include mat.all-component-colors($my-dark-theme);
+}

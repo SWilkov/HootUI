@@ -1,0 +1,143 @@
+
+@import '../../mixins';
+
+.rs {
+    display: flex;
+    justify-content: center;
+   
+    &__container {
+        
+        padding: 0 1em;
+    }
+
+    &__dvla {
+      display: flex;
+      justify-content: center;
+      padding: 1em;
+    }
+
+    &__check {
+      font-size: 0.86em;
+    }
+
+    &__search{
+      &__container {
+        position: relative;
+        display: inline-block;
+      }
+
+      &__btn {
+        position: absolute;
+        top: 20px;
+        left: 10px;
+        cursor: pointer;
+      }
+
+      &__btn {
+        left: auto;
+        right: 15px;
+      }
+
+      &__icon {
+        color: red;
+      }
+    }
+
+    &__form {
+        background: #fff;
+        border-radius: 8px;
+        display: flex;
+        padding: 1px;
+    }
+
+    &__btn {
+        padding: 0 20px 0 18px;
+        background-image: linear-gradient(to right, #19e1df, #0eb946);
+        border: 0;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        margin-left: 1px;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+        }
+    }
+
+    &__input {
+        //background: #201c29;
+        background-color: #fff;
+        border: 2px solid rgba(32, 28, 41, 0.8);
+        min-width: 0;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        color: rgba(32, 28, 41, 0.8);
+        font-weight: 600;
+        font-size: 2rem;
+        padding: 1rem;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        -webkit-appearance: unset;
+    }
+}
+
+
+
+@include respond-above(daddyshark) {
+    .rs {
+        &__container {
+             
+        }
+    }
+}
+
+@include respond-below(daddyshark) {
+    .rs {
+
+        &__container {
+            
+        }
+
+        &__btn {
+            padding: 0 35px 0 35px;
+        }
+    }
+}
+
+@include respond-below(mummyshark) {
+    .rs {
+        &__container {
+            //max-width: 100%;
+        }
+    }
+}
+
+@include respond-below(babyshark) {
+    .rs {
+        &__form {
+            flex-direction: column;
+        }
+
+        &__btn {
+            border: 0;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            border-top-right-radius: 0;
+            padding: 5px 20px 5px 18px;
+        }
+
+        &__input {
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 0;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 0;  
+        }
+    }
+}
+

@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--brand-green);
+}
+
+:root {
+  --brand-green: #73c49e;
+  --brand-color: rgba(32, 28, 41, 0.8);
+  --huge-size: 54px;
+  --huge-size-ds: 48px;
+  --huge-size-ms: 36px;
+  --huge-size-bs: 32px;
+}

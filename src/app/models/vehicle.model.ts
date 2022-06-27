@@ -1,3 +1,4 @@
+import { DvlaInfo } from "./dvla-data.model";
 import { MileageStatistics } from "./mileage-statistics.model";
 import { MotTest } from "./mot-test.model";
 
@@ -16,5 +17,5 @@ export interface Vehicle {
   uniqueVehicleId: string;
 
   motTests: MotTest[];
-  mileageStatistics: MileageStatistics[];
+  mileageStatistics: MileageStatistics[]; 
 }

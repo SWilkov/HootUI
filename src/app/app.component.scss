@@ -1,0 +1,16 @@
+@import './mixins';
+
+.app {
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }  
+}
+
+@include respond-above(daddyshark) {
+  .app {
+    &__registration {
+      margin-top: 2em;
+    }
+  }
+}

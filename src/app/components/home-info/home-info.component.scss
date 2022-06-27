@@ -1,0 +1,93 @@
+@import '../../mixins';
+
+.home-info {
+  
+  &__headline {
+    color: var(--brand-color);
+    font-size: var(--huge-size);
+    font-weight: 600;
+    line-height: 1.05em;
+    text-align: center;
+  }
+
+  &__brand {
+    color: var(--brand-green);
+  }
+
+  &__extra {
+    font-weight: 400;
+    color: var(--teal);
+    margin-block-start: 8px; 
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__description {    
+    color: var(--bg-off-white);
+    line-height: var(--line-height); 
+    text-align: center;
+  }
+
+  &__aware {
+    color: var(--bg-off-white);
+    font-size: 12px;
+    font-weight: 500;
+    // display: flex;
+    // justify-content: flex-end;
+    //text-align: center; 
+    margin-top: 20px;
+  }
+
+  &__link {
+    color: var(--teal);
+    
+    font-weight: 500;
+    &:hover {
+      text-decoration: underline; 
+    }
+  }
+}
+
+@include respond-above(daddyshark) {
+  .home-info {
+    
+      &__headline {
+        max-width: 75%;
+      }
+  }
+}
+
+@include respond-below(daddyshark) {
+  .home-info {
+    
+    &__headline {
+      font-size: var(--huge-size-ds);
+      
+    }
+  }
+}
+
+@include respond-below(mummyshark) {
+  .home-info {
+    &__headline {
+      font-size: var(--huge-size-ms);
+    }
+
+    &__description {
+      font-size: 0.86em;
+    }
+  }
+}
+
+@include respond-below(babyshark) {
+  .home-info {
+    &__headline {
+      font-size: var(--huge-size-bs);
+    }
+  }
+}

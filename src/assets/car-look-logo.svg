@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="160" height="129" viewBox="0 0 160 129">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        font-size: 44px;
+        font-family: "Zeitung Pro";
+        font-weight: 700;
+      }
+
+      .cls-1 {
+        fill: #120f0a;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <image width="160" height="129" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACBCAYAAABHP7G+AAABZUlEQVR4nO3SQREAIRDAsOW08MC/CGwdMvpJJHS6zt3/QOQTnpIBSRmQlAFJGZCUAUkZkJQBSRmQlAFJGZCUAUkZkJQBSRmQlAFJGZCUAUkZkJQBSRmQlAFJGZCUAUkZkJQBSRmQlAFJGZCUAUkZkJQBSRmQlAFJGZCUAUkZkJQBSRmQlAFJGZCUAUkZkJQBSRmQlAFJGZCUAUkZkJQBSRmQlAFJGZCUAUkZkJQBSRmQlAFJGZCUAUkZkJQBSRmQlAFJGZCUAUkZkJQBSRmQlAFJGZCUAUkZkJQBSRmQlAFJGZCUAUkZkJQBSRmQlAFJGZCUAUkZkJQBSRmQlAFJGZCUAUkZkJQBSRmQlAFJGZCUAUkZkJQBSRmQlAFJGZCUAUkZkJQBSRmQlAFJGZCUAUkZkJQBSRmQlAFJGZCUAUkZkJQBSRmQlAFJGZCUAUkZkJQBSRmQlAFJGZCUAUkZkJQB6czMA6YoAxMN7SpnAAAAAElFTkSuQmCC"/>
+  <text id="CAR" class="cls-1" x="17.496" y="56.208">CAR</text>
+  <text id="LOOK" class="cls-2" x="17.13" y="99.435">LOOK</text>
+</svg>
