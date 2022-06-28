@@ -1,0 +1,203 @@
+{
+  "vehicles": [
+    {
+      "id": 1,
+      "registration": "AE15XUX",
+      "make": "VOLVO",
+      "model": "V40",
+      "primaryColor": "black",
+      "firstUsedDate": "2015-03-03 00:00:00",
+      "motTestDueDate": "0001-01-01 00:00:00",
+      "manufactireDate": "2015-11",
+      "engineSize": 1967,
+      "uniqueVehicleId": 111111,
+      "fuelType": "diesel",
+      "motTests": [
+        {
+          "completedDate": "2020-02-18T11:00:11Z",
+          "result": "PASSED",
+          "expiryDate": "2021-03-02T00:00:00Z",
+          "mileage": 48973,
+          "motTestNumber": 776799599954,
+          "odometerResultType": "",
+          "odometerUnit": "mi",
+          "comments": [],
+          "id": 1
+        },
+        {
+          "completedDate": "2020-02-18T08:50:10Z",
+          "result": "FAILED",
+          "expiryDate": "0001-01-01T00:00:00Z",
+          "mileage": 48969,
+          "motTestNumber": 476071884254,
+          "comments": [
+            {
+              "type": "FAIL",
+              "text": "Nearside Front Outer Drive shaft joint constant velocity boot split or insecure, no longer prevents the ingress of dirt (6.1.7 (g) (ii))",
+              "dangerous": true,
+              "id": 1
+            }
+          ],
+          "id": 2
+        },
+        {
+          "completedDate": "2019-02-22T10:27:20Z",
+          "result": "PASSED",
+          "expiryDate": "2020-03-02T00:00:00Z",
+          "mileage": 36865,
+          "motTestNumber": 852157926661,
+          "comments": [
+            {
+              "type": "ADVISORY",
+              "text": "Nearside Front Service brake binding but not excessively (1.2.1 (f))",
+              "id": 2,
+              "dangerous": false
+            },
+            {
+              "type": "ADVISORY",
+              "text": "Offside Front Service brake binding but not excessively (1.2.1 (f))",
+              "dangerous": false,
+              "id": 3
+            },
+            {
+              "type": "ADVISORY",
+              "text": "Nearside Front Tyre worn close to legal limit/worn on edge (5.2.3 (e))",
+              "dangerous": false,
+              "id": 4
+            },
+            {
+              "type": "ADVISORY",
+              "text": "Nearside Rear Child Seat fitted not allowing full inspection of adult belt ()",
+              "dangerous": false,
+              "id": 5
+            }
+          ],
+          "id": 3
+        },
+        {
+          "completedDate": "2018-02-26T16:24:51Z",
+          "result": "PASSED",
+          "expiryDate": "2019-03-02T00:00:00Z",
+          "mileage": 26395,
+          "motTestNumber": 833508812598,
+          "comments": [
+            {
+              "type": "ADVISORY",
+              "text": "Nearside Front Tyre worn close to the legal limit (4.1.E.1)",
+              "dangerous": false,
+              "id": 6
+            },
+            {
+              "type": "ADVISORY",
+              "text": "Nearside Rear Tyre worn close to the legal limit (4.1.E.1)",
+              "dangerous": false,
+              "id": 7
+            },
+            {
+              "type": "ADVISORY",
+              "text": "Offside Rear Tyre worn close to the legal limit (4.1.E.1)",
+              "dangerous": false,
+              "id": 8
+            },
+            {
+              "type": "ADVISORY",
+              "text": "Front Brake pad(s) wearing thin (3.5.1g)",
+              "dangerous": false,
+              "id": 9
+            },
+            {
+              "type": "ADVISORY",
+              "text": "Rear Brake pad(s) wearing thin (3.5.1g)",
+              "dangerous": false,
+              "id": 10
+            }
+          ],
+          "id": 4
+        }
+      ],
+      "mileageStatistics": [
+        {
+          "startYear": 2015,
+          "endYear": 2018,
+          "mileage": 8798
+        },
+        {
+          "startYear": 2018,
+          "endYear": 2019,
+          "mileage": 10470
+        },
+        {
+          "startYear": 2019,
+          "endYear": 2020,
+          "mileage": 12108
+        }
+      ],
+      "manufactureYear": 2015,
+      "motTestExpiryDate": "0001-01-01T00:00:00Z",
+      "dvlaId": 0
+    },
+    {
+      "registration": "AO63LLX",
+      "id": 2
+    },
+    {
+      "registration": "AO63LLX",
+      "id": 3
+    },
+    {
+      "registration": "AO63LLX",
+      "id": 4
+    },
+    {
+      "registration": "AO63LLX",
+      "id": 5
+    },
+    {
+      "registration": "AO63LLX",
+      "id": 6
+    },
+    {
+      "registration": "AO63LLX",
+      "id": 7
+    },
+    {
+      "registration": "AO63LLX",
+      "id": 8
+    }
+  ],
+  "dvla": [
+    {
+      "id": 1,
+      "registration": "GV17XEN",
+      "make": "VOLVO",
+      "color": "BLACK",
+      "fuelType": "DIESEL",
+      "engineCapacity": 0,
+      "monthRegistration": "2017-07",
+      "motStatus": "Valid",
+      "motExpiryDate": "2023-05-22T00:00:00",
+      "dvlaInfo": {
+        "co2Emissions": 124,
+        "markedForExport": false,
+        "typeApproval": "M1",
+        "taxDueDate": "2021-07-02T00:00:00",
+        "taxStatus": "Untaxed",
+        "dateOfLastV5CIssued": "2020-09-25T00:00:00",
+        "wheelplan": "2 AXLE RIGID BODY",
+        "id": 0
+      }
+    },
+    {
+      "registration": "AE15XUX",
+      "id": 2
+    },
+    {
+      "registration": "AE15XUX",
+      "id": 3
+    },
+    {
+      "registration": "AE15XUX",
+      "id": 4
+    }
+  ]
+}

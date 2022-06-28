@@ -1,6 +1,6 @@
 <div class="rs">
   <div class="rs__container">
-    <form role="search" [formGroup]="searchForm" method="GET" id="searchRegistrationForm" 
+    <form role="search" [formGroup]="searchForm" id="searchRegistrationForm" 
       class="rs__form"
       (ngSubmit)="search()">
       <div class="rs__search__container">
@@ -14,14 +14,13 @@
         </span>
         <input type="search" id="search-registration-input" name="search-registration-input"
         class="rs__input" formControlName="searchText"  
-          placeholder="AB12XYZ">  
-          
-      </div>
-     
+          placeholder="AB12XYZ">             
+      </div>     
     </form>
     <div class="rs__dvla">
     <mat-checkbox class="rs__check"
-      [(ngModel)]="dvla"
+      [checked]="includeDvla$ | async"
+      (change)="includeDvlaChanged($event)"
       color="primary"            
       labelPosition="after">
       include DVLA info

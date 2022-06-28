@@ -4,12 +4,14 @@ import { distinctUntilChanged, switchMap, debounceTime } from 'rxjs/operators';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { TextService } from 'src/app/services/text.service';
+import { TextService } from 'src/app/mot/services/text.service';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/reducers/root-index';
-import { Vehicle } from 'src/app/models/vehicle.model';
+import { Vehicle } from 'src/app/mot/models/vehicle.model';
 import { faSearch, IconDefinition } from '@fortawesome/free-solid-svg-icons'
-
+import * as searchActions from '../../actions/search.actions';
+import * as searchSelectors from '../../selectors/search.selector';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 export interface SearchFormProps {
   searchText: FormControl<string|null>;
 }
@@ -30,13 +32,15 @@ export class RegistrationSearchComponent implements OnInit, OnDestroy {
   vehicle$: Observable<Vehicle> | undefined;
   vehicle: Vehicle | undefined;
 
-  dvla: boolean = false;
+  includeDvla$: Observable<boolean>;
   
   constructor(private store: Store<AppState>,
     private textService: TextService,
     private router: Router) { }
 
   ngOnInit() {
+    this.includeDvla$ = this.store.select(searchSelectors.selectIncludeDvla);
+
     this.subscription =
       this.searchForm.controls.searchText?.valueChanges
         .pipe(
@@ -60,7 +64,13 @@ export class RegistrationSearchComponent implements OnInit, OnDestroy {
     if (this.registration) {
       let cleanRegistration = this.textService.clean(this.registration);
       this.searchForm.controls.searchText?.setValue(cleanRegistration);
-      this.router.navigate([`vehicle/${cleanRegistration}`]);
+      this.router.navigate([`vehicles/${cleanRegistration}`]);
     }
    }  
+
+   includeDvlaChanged = (change: MatCheckboxChange) => {
+    if (change) {
+      this.store.dispatch(searchActions.toggleDvlaSearch());
+    }
+   }
 }

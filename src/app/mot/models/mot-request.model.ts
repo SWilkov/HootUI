@@ -1,4 +1,4 @@
 export interface MotRequest {
-  registration: string;
+  registration: string | null;
   vehicleId: string;
 }

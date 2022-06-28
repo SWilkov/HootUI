@@ -1,4 +1,3 @@
-import { DvlaInfo } from "./dvla-data.model";
 import { MileageStatistics } from "./mileage-statistics.model";
 import { MotTest } from "./mot-test.model";
 

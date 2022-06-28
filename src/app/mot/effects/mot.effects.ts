@@ -10,10 +10,20 @@ export class MotEffects {
 
   }
 
-  loadMot$ = createEffect(() => this.actions$
+  // loadMot$ = createEffect(() => this.actions$
+  //   .pipe(
+  //     ofType(motActions.loadMot),
+  //     mergeMap(({payload}) => this.motlookupService.get(payload)
+  //       .pipe(
+  //         map((response) => motActions.loadMotSuccess({payload: response})),
+  //         catchError((error) => of(motActions.loadMotFail({payload: error})))
+  //       ))
+  //   ));
+
+    loadMot$ = createEffect(() => this.actions$
     .pipe(
       ofType(motActions.loadMot),
-      mergeMap(({payload}) => this.motlookupService.get(payload)
+      mergeMap(({payload}) => this.motlookupService.getById(payload)
         .pipe(
           map((response) => motActions.loadMotSuccess({payload: response})),
           catchError((error) => of(motActions.loadMotFail({payload: error})))

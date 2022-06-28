@@ -1,0 +1,20 @@
+@import '../../../mixins';
+
+.motd {
+  display: flex;
+  &__container {
+    width: 100%;
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+
+  &__latest {
+    margin-top: 20px;
+    grid-column: 1/3;
+  }
+}
