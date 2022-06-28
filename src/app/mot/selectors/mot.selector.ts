@@ -1,7 +1,7 @@
 
 import { createSelector } from '@ngrx/store';
 import * as fromMot from '../reducers/mot.reducer';
-import { AppState } from '../reducers/root-index';
+import { AppState } from '../../reducers/root-index';
 
 const motState = (state: AppState) => state.mots;
 

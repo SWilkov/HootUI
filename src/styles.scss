@@ -12,6 +12,32 @@ a:hover {
   color: var(--brand-green);
 }
 
+label {
+  text-transform: uppercase;
+  color:rgba(32, 28, 41, 0.65);
+}
+
+.main {
+  &__result {
+    color: rgba(32, 28, 41, 1);
+    font-weight: 600;
+    margin-top: 2px;
+    font-size: 1.25em;
+  }
+
+  &__status {
+    font-size: 3em;
+    font-weight: 600;
+    &--warning {
+      color: var(--warning);
+    }
+
+    &--ok {
+      color: var(--ok);
+    }
+  }
+}
+
 :root {
   --brand-green: #73c49e;
   --brand-color: rgba(32, 28, 41, 0.8);
@@ -19,4 +45,7 @@ a:hover {
   --huge-size-ds: 48px;
   --huge-size-ms: 36px;
   --huge-size-bs: 32px;
+
+  --warning: rgb(224, 41, 41);
+  --ok: rgb(30, 176, 52);
 }

@@ -4,33 +4,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { MotLookupService } from './services/mot-lookup.service';
 import { reducers } from './reducers/root-index';
 import { EffectsModule } from '@ngrx/effects';
-import { MotEffects } from './effects/mot.effects';
+import { MotEffects } from './mot/effects/mot.effects';
 import { HomeComponent } from './pages/home/home.component';
-import { HeaderComponent } from './components/header/header.component';
 import { VehicleComponent } from './pages/vehicle/vehicle.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { TextService } from './services/text.service';
+import { TextService } from './mot/services/text.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RegistrationSearchComponent } from './components/registration-search/registration-search.component';
 import { MaterialLibModule } from './modules/material-lib.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { TopBarComponent } from './components/top-bar/top-bar.component';
-import { HomeInfoComponent } from './components/home-info/home-info.component';
+import { VehiclesComponent } from './pages/vehicles/vehicles.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { MotLookupModule } from './mot/mot-lookup.module';
+import { ControlsModule } from './components/controls.module';
+import { DvlaEffects } from './dvla/effects/dvla.effects';
+import { DvlaModule } from './dvla/dvla.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    HeaderComponent,
-    VehicleComponent,
-    FooterComponent,
-    RegistrationSearchComponent,
-    TopBarComponent,
-    HomeInfoComponent
+    HomeComponent,    
+    VehicleComponent,    
+    VehiclesComponent
   ],
   imports: [
     BrowserModule,
@@ -39,22 +37,25 @@ import { HomeInfoComponent } from './components/home-info/home-info.component';
     HttpClientModule,
     ReactiveFormsModule,
     MaterialLibModule,
+    ControlsModule,
     StoreModule.forRoot(reducers, {
       
     }),
     EffectsModule.forRoot([
-      MotEffects
+      MotEffects,
+      DvlaEffects
     ]),
-    FontAwesomeModule
+    FontAwesomeModule,
+    MotLookupModule,
+    DvlaModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   exports: [
     HomeComponent,
-    RegistrationSearchComponent,
-    HeaderComponent,
-    FooterComponent,
-    TopBarComponent, HomeInfoComponent
+    VehicleComponent,
+    VehiclesComponent,    
   ],
-  providers: [MotLookupService, TextService],
+  providers: [TextService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,50 @@
+<div class="motd">
+  <div class="motd__container">
+    <mat-card class="motd__card" *ngIf="vehicle$ | async as car; else nodata">
+      <mat-card-header>
+        <mat-card-title>MOT details</mat-card-title>        
+        <mat-card-subtitle>{{car.registration}}</mat-card-subtitle>       
+      </mat-card-header>
+      <mat-card-content>
+        <div class="motd__items">
+
+          <div class="motd__item">
+            <label>make</label>
+            <div class="main__result">{{car.make}}</div>
+          </div>
+
+          <div class="motd__item">
+            <label>model</label>
+            <div class="main__result">{{car.model}}</div>
+          </div>
+
+          <div class="motd__item">
+            <label>color</label>
+            <div class="main__result">{{car.primaryColor}}</div>
+          </div>
+
+          <div class="motd__item">
+            <label>fuel type</label>
+            <div class="main__result">{{car.fuelType}}</div>
+          </div>
+
+          <div class="motd__latest" *ngIf="getLatest(car) as latest;">
+            <label>Current MOT Status</label>
+            <div class="main__status"
+              [ngClass]="{ 'main__status--warning': latest.result === 'FAILED',
+              'main__status--ok': latest.result === 'PASSED' }">
+              {{latest.result}}
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <ng-template #nodata>
+      <div>
+        <h5>No MOT Data as of yet!</h5>
+      </div>
+    </ng-template>
+  </div>  
+</div>
+

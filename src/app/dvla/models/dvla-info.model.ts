@@ -1,12 +1,9 @@
-
 export interface DvlaInfo {
-  id: number;
   co2Emissions: number;
-  engineCapacity: string;
-  markedForExport: false;
+  markedForExport: boolean;
   typeApproval: string;
   taxDueDate: Date;
   taxStatus: string;
-  dateOfLastV5CIssued: Date;
+  dateOfLastV5Issued: Date;
   wheelplan: string;
 }

@@ -6,7 +6,8 @@ export const environment = {
   production: false,
 
   apis: {
-    motLookup: 'http://localhost:7057/api/mot-query'
+    motLookup: 'http://localhost:3000/vehicles', //'http://localhost:7057/api/mot-query'
+    dvlaLookup: 'http://localhost:3000/dvla' 
   }
 };
 
