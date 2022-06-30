@@ -49,6 +49,7 @@
   &__latest {
     display: grid;
     grid-template-rows: 1fr 1fr;
+    border-radius: 10px;
     column-gap: 10px;
     background-color: rgba(0,0,0,0.02);
     align-items: center;

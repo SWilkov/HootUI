@@ -8,8 +8,13 @@
   }
 
   section {
-    padding: 1em;
+    padding: 1em 2em;
   }
+  
+}
+
+.vehicle section:last-child {
+  background-color: rgba(0,0,0,0.03);
 }
 
 @include respond-above(daddyshark) {
@@ -18,8 +23,7 @@
     &__container {
       display: grid;
       grid-template-rows: 1fr 1fr;
-      column-gap: 2em;
-      padding: 1em 2em;
+      column-gap: 2em;      
       max-width: var(--max-width);
     }
   }

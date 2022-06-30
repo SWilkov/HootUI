@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialLibModule } from '../modules/material-lib.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TitleComponent } from './title/title.component';
+import { HelpInfoComponent } from './help-info/help-info.component';
 
 const items = [
   FooterComponent,
@@ -17,12 +18,13 @@ const items = [
   TopBarComponent,
   HomeInfoComponent,
   RegistrationSearchComponent,
-  TitleComponent
+  TitleComponent,
+  HelpInfoComponent
 ]
 
 @NgModule({
   declarations: [
-    ...items
+    ...items    
     ],
   imports: [    
     CommonModule,

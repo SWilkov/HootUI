@@ -1,0 +1,47 @@
+@import '../../mixins';
+
+.help-info {
+  display: flex;
+  justify-content: center;
+  &__container {
+    display: flex;
+    flex-direction: column;  
+    margin: 2em 0;  
+  }
+  &__items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+  }
+
+  &__item {
+    padding: 1em;
+    background: rgba(0,0,0,0.02);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 2em;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  &__subtitle {
+    font-size: 1.2rem;
+    line-height: 30px;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+}
+
+@include respond-above(daddyshark)
+ {
+  .help-info {
+    &__container {
+      max-width: var(--max-width);
+    }
+  }
+ }
