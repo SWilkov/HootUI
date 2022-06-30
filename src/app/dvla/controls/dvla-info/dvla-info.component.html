@@ -1,13 +1,26 @@
 <div class="dvlainfo">
-  <div class="dvlainfo__container">
-    <mat-card class="dvlainfo__card" *ngIf="dvlaVehicle$ | async as dvla; else nodata">
-      <mat-card-header>
-        <mat-card-title>DVLA information</mat-card-title>
-        <mat-card-subtitle>{{dvla.registration}}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <div class="dvlainfo__items">
+  <div class="dvlainfo__container" *ngIf="dvlaVehicle$ | async as dvla; else nodata">
+    <carid-title [headerText]="'DVLA information'"
+    [subheaderText]="dvla.registration"></carid-title>
+        
+      <div class="dvlainfo__grid">
+        <div class="dvlainfo__tax">
+          <div class="dvlainfo__item">
+            <label>Tax Status</label>
+            <div class="dvlainfo__tax__status"
+              [ngClass]="{ 'main__status--warning': getTaxStatus(dvla.dvlaInfo.taxStatus) === 'Untaxed',
+              'main__status--ok': getTaxStatus(dvla.dvlaInfo.taxStatus) === 'Taxed' }">{{dvla.dvlaInfo.taxStatus}}</div>
+          </div>
+          <div class="dvlainfo__item">
+            <label>Tax due date <span><fa-icon [icon]="faCircleQuestion" [title]="'When the vehicles tax needs renewing'" 
+              [styles]="{ 'color': 'var(--brand-green)' }" size="sm"></fa-icon>
+            </span></label>
+            <div class="main__result">{{dvla.dvlaInfo.taxDueDate | date: 'longDate' }}
+          </div>
+        </div>
+        </div>
 
+        <div class="dvlainfo__top-grid">
           <div class="dvlainfo__item">
             <label>Make</label>
             <div class="main__result">{{dvla.make}}</div>
@@ -28,21 +41,60 @@
             <div class="main__result">{{dvla.fuelType}}</div>
           </div>
 
-          <div class="dvlainfo__tax">
-            <label>Tax Status</label>
-            <div class="dvlainfo__tax__status"
-              [ngClass]="{ 'main__status--warning': getTaxStatus(dvla.dvlaInfo.taxStatus) === 'Untaxed',
-              'main__status--ok': getTaxStatus(dvla.dvlaInfo.taxStatus) === 'Taxed' }">{{dvla.dvlaInfo.taxStatus}}</div>
+          <div class="dvlainfo__item">
+            <label>Co2 Emissions <span><fa-icon [icon]="faCircleQuestion" [title]="'carbon dioxide in grams per kilometer'" 
+              [styles]="{ 'color': 'var(--brand-green)' }" size="sm"></fa-icon>
+            </span></label>
+            <div class="main__result">{{dvla.dvlaInfo.co2Emissions}}
+              
+            </div>
           </div>
 
-        </div>
-      </mat-card-content>
-    </mat-card>
+          <div class="dvlainfo__item">
+            <label>Marked for Export  <span><fa-icon [icon]="faCircleQuestion" [title]="'currently the car is unregistered in the UK or an application has been made for permanent export'" 
+              [styles]="{ 'color': 'var(--brand-green)' }" size="sm"></fa-icon>
+            </span></label>
+            <div class="main__result">{{dvla.dvlaInfo.markedForExport}}
+             
+            </div>
+          </div>
 
-    <ng-template #nodata>
-      <div>
-        <h4>No DVLA data yet!</h4>
-      </div>
-    </ng-template>
+          <div class="dvlainfo__item">
+            <label>Type Approval  <span><fa-icon [icon]="faCircleQuestion" [title]="'The GB scheme passenger vehciles are marked with M '" 
+              [styles]="{ 'color': 'var(--brand-green)' }" size="sm"></fa-icon>
+            </span></label>
+            <div class="main__result">{{dvla.dvlaInfo.typeApproval}}
+             
+            </div>
+          </div>
+
+          <div class="dvlainfo__item">
+            <label>Date last V5 issued  <span><fa-icon [icon]="faCircleQuestion" [title]="'The V5 document contains a record of the registered keeper of the vehicle'" 
+              [styles]="{ 'color': 'var(--brand-green)' }" size="sm"></fa-icon>
+            </span></label>
+            <div class="main__result" *ngIf="dvla.dvlaInfo.dateOfLastV5Issued; else dash">{{dvla.dvlaInfo.dateOfLastV5Issued}}</div>
+            <ng-template #dash>
+              <div>
+                <fa-icon [icon]="faMinus" size="lg"></fa-icon>
+              </div>
+            </ng-template>
+          </div>
+
+          <div class="dvlainfo__item">
+            <label>Wheel plan  <span><fa-icon [icon]="faCircleQuestion" [title]="'The V5 document contains a record of the registered keeper of the vehicle and any changes to the vehicle that require DVLA approval'" 
+              [styles]="{ 'color': 'var(--brand-green)' }" size="sm"></fa-icon>
+            </span></label>
+            <div class="main__result">{{dvla.dvlaInfo.wheelplan}}
+             
+            </div>
+          </div>
+        </div>
+         
   </div>
+  </div>
+  <ng-template #nodata>
+    <div>
+      <h4>No DVLA data yet!</h4>
+    </div>
+  </ng-template>
 </div>

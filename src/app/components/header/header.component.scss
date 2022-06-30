@@ -1,0 +1,27 @@
+@import '../../mixins';
+
+.header {
+  display: flex;
+  background: linear-gradient(110deg, #0d6c3f 18.73%, #73c49e 63.32%);
+  justify-content: center;
+  &__container {
+    display: grid;
+    width: 100%;
+    grid-template-rows: 70px auto;
+  }
+
+  &__search {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 1em;
+  }
+}
+
+@include respond-above(daddyshark) {
+  .header {
+    &__container {
+      max-width: var(--max-width);
+    }
+  }
+}

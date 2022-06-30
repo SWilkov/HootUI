@@ -6,6 +6,10 @@
   &__container {
     width: 100%;
   }
+
+  section {
+    padding: 1em;
+  }
 }
 
 @include respond-above(daddyshark) {
@@ -13,9 +17,10 @@
 
     &__container {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
       column-gap: 2em;
       padding: 1em 2em;
+      max-width: var(--max-width);
     }
   }
 }

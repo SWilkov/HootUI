@@ -1,4 +1,5 @@
 import { createAction, props } from "@ngrx/store";
+import { MileageStatistics } from "../models/mileage-statistics.model";
 import { MotRequest } from "../models/mot-request.model";
 import { Vehicle } from "../models/vehicle.model";
 

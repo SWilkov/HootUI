@@ -9,6 +9,7 @@ import * as motActions from '../../actions/mot.actions';
 import { MotRequest } from '../../models/mot-request.model';
 import { MotTest } from '../../models/mot-test.model';
 import { MotTestService } from '../../services/mot-test.service';
+import { faMinus, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'carid-mot-details',
   templateUrl: './mot-details.component.html',
@@ -20,6 +21,8 @@ export class MotDetailsComponent implements OnInit {
 
   vehicle$: Observable<Vehicle | undefined>;
   vehicleSubscription: Subscription;
+
+  faMinus: IconDefinition = faMinus;
 
   constructor(private store: Store<AppState>,
     private motTestService: MotTestService) { }

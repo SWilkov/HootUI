@@ -1,0 +1,25 @@
+<div class="stats">
+  <div class="stats__container" *ngIf="stats">
+    <table class="stats__table">
+      <thead>
+        <tr>
+          <th>Start</th>
+          <th>End</th>
+          <th>Miles <small>p/y</small></th>
+          <th>Trend</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ms of stats; index as i;">
+          <td>{{ms.startYear}}</td>
+          <td>{{ms.endYear}}</td>
+          <td>{{ms.mileage}}</td>
+          <td>            
+            <fa-icon [icon]="getForm(i)" size="lg" 
+            [styles]="{'stroke': 'rgba(32, 28, 41, 0.8)', 'color': 'rgba(32, 28, 41, 0.8)'}"></fa-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

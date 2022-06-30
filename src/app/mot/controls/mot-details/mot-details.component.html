@@ -1,50 +1,98 @@
 <div class="motd">
-  <div class="motd__container">
-    <mat-card class="motd__card" *ngIf="vehicle$ | async as car; else nodata">
-      <mat-card-header>
-        <mat-card-title>MOT details</mat-card-title>        
-        <mat-card-subtitle>{{car.registration}}</mat-card-subtitle>       
-      </mat-card-header>
-      <mat-card-content>
-        <div class="motd__items">
+  <div class="motd__container" *ngIf="vehicle$ | async as car; else nodata">   
+   <carid-title [headerText]="'MOT information'"
+    [subheaderText]="car.registration"></carid-title>
 
-          <div class="motd__item">
-            <label>make</label>
-            <div class="main__result">{{car.make}}</div>
-          </div>
-
-          <div class="motd__item">
-            <label>model</label>
-            <div class="main__result">{{car.model}}</div>
-          </div>
-
-          <div class="motd__item">
-            <label>color</label>
-            <div class="main__result">{{car.primaryColor}}</div>
-          </div>
-
-          <div class="motd__item">
-            <label>fuel type</label>
-            <div class="main__result">{{car.fuelType}}</div>
-          </div>
-
-          <div class="motd__latest" *ngIf="getLatest(car) as latest;">
-            <label>Current MOT Status</label>
-            <div class="main__status"
-              [ngClass]="{ 'main__status--warning': latest.result === 'FAILED',
-              'main__status--ok': latest.result === 'PASSED' }">
-              {{latest.result}}
-            </div>
-          </div>
+    <div class="motd__grid">
+      <div class="motd__latest" *ngIf="getLatest(car) as latest;">
+        <div class="motd__item">
+        <label>Current MOT Status</label>
+        <div class="main__status"
+          [ngClass]="{ 'main__status--warning': latest.result === 'FAILED',
+          'main__status--ok': latest.result === 'PASSED' }">
+          {{latest.result}}
         </div>
-      </mat-card-content>
-    </mat-card>
-
-    <ng-template #nodata>
-      <div>
-        <h5>No MOT Data as of yet!</h5>
       </div>
-    </ng-template>
+        <div class="motd__item" *ngIf="car.motTestDueDate && car.motTests.length === 0">
+          <label>MOT Due Date</label>
+          <div class="main__result">{{car.motTestDueDate | date: 'longDate'}}</div>
+        </div>
+
+        <div class="motd__item" *ngIf="getLatest(car) as latest">
+          <label>MOT Expiry Date</label>
+          <div class="main__result">{{latest.expiryDate | date: 'longDate'}}</div>
+        </div>
+      </div>
+
+      <div class="motd__top-grid">
+        <div class="motd__item">
+          <label>make</label>
+          <div class="main__result">{{car.make}}</div>
+        </div>
+
+        <div class="motd__item">
+          <label>model</label>
+          <div class="main__result">{{car.model}}</div>
+        </div>
+
+        <div class="motd__item">
+          <label>color</label>
+          <div class="main__result">{{car.primaryColor}}</div>
+        </div>
+
+        <div class="motd__item">
+          <label>fuel type</label>
+          <div class="main__result">{{car.fuelType}}</div>
+        </div>
+
+        <div class="motd__item">
+          <label>Registration date</label>
+          <div class="main__result" *ngIf="car.registrationDate; else dash">
+            {{car.registrationDate | date: 'longDate'}}
+          </div>
+          <ng-template #dash>
+            <div>
+              <fa-icon [icon]="faMinus" size="lg"></fa-icon>
+            </div>
+          </ng-template>
+        </div>
+  
+        <div class="motd__item">
+          <label>Manufactured date</label>
+          <div class="main__result" *ngIf="car.manufactureDate; else dash">
+            {{car.manufactureDate | date: 'longDate'}}
+          </div>
+          <ng-template #dash>
+            <div>
+              <fa-icon [icon]="faMinus" size="lg"></fa-icon>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+
+   
+      
+    </div>
+
+    
+     
+
+      
+      <div class="motd__tests" *ngIf="car && car.motTests">
+        <h3 class="motd__subtitle">MOT History</h3>
+        <carid-mot-test [tests]="car.motTests"></carid-mot-test>
+      </div>
+      
+
+    <div class="motd__stats" *ngIf="car && car.mileageStatistics">
+      <h3 class="motd__subtitle">Mileage Statistics</h3>
+      <carid-mileage-stats [stats]="car.mileageStatistics"></carid-mileage-stats>
+    </div>
   </div>  
+  <ng-template #nodata>
+    <div>
+      <h5>No MOT Data as of yet!</h5>
+    </div>
+  </ng-template>
 </div>
 

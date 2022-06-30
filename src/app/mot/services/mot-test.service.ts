@@ -10,5 +10,6 @@ export class MotTestService {
 
   hasTests = (vehicle: Vehicle): boolean => {
     return (vehicle && vehicle.motTests && vehicle.motTests.length > 0) ? true : false;
-  }  
+  }
+  
 }
