@@ -3,7 +3,7 @@ $breakpoints: (
   babyshark: 576px,
   mummyshark: 768px,
   daddyshark: 992px,
-  grandpashark: 1200px
+  grandpashark: 1250px
 );  
 
 @mixin respond-above($breakpoint) {

@@ -18,7 +18,7 @@
     display: flex;
     width: 100%;
     justify-content: center;
-    padding: 1em;
+    padding: 1em 0;
   }
 }
 
@@ -29,3 +29,13 @@
     }
   }
 }
+
+@include respond-below(babyshark)
+ {
+  .header {
+    &__logo {
+      display: flex;
+      justify-content: center;
+    }
+  }
+ }

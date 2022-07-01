@@ -3,7 +3,7 @@
 .home-info {
   background: rgba(0,0,0,0.03);
   &__headline {
-    color: var(--brand-color);
+    
     font-size: var(--huge-size);
     font-weight: 600;
     line-height: 1.05em;
@@ -51,6 +51,11 @@
       
     }
   }
+
+  &__logo {
+    width: 100px;
+    height: 61px;
+  }
 }
 
 @include respond-above(daddyshark) {
@@ -76,12 +81,17 @@
 
 @include respond-below(mummyshark) {
   .home-info {
+    &__container {
+      padding: 12px;      
+    }
+
     &__headline {
       font-size: var(--huge-size-ms);
+      line-height: 40px;
     }
 
     &__description {
-      font-size: 0.86em;
+      
     }
   }
 }
@@ -90,6 +100,11 @@
   .home-info {
     &__headline {
       font-size: var(--huge-size-bs);
+    }
+
+    &__logo {
+      width: 80px;
+      height: 49px;
     }
   }
 }

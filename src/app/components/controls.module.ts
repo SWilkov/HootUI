@@ -11,6 +11,7 @@ import { MaterialLibModule } from '../modules/material-lib.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TitleComponent } from './title/title.component';
 import { HelpInfoComponent } from './help-info/help-info.component';
+import { HomeImageComponent } from './home-image/home-image.component';
 
 const items = [
   FooterComponent,
@@ -19,12 +20,13 @@ const items = [
   HomeInfoComponent,
   RegistrationSearchComponent,
   TitleComponent,
-  HelpInfoComponent
+  HelpInfoComponent,
+  HomeImageComponent
 ]
 
 @NgModule({
   declarations: [
-    ...items    
+    ...items        
     ],
   imports: [    
     CommonModule,

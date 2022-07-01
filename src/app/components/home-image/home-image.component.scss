@@ -1,0 +1,77 @@
+@import '../../mixins';
+
+.homeimg {
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 10px;
+    width: 100%;
+    padding: 1em 2em;
+  }
+
+  &__img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 15px;
+  }
+
+  &__main {
+    background-image: url('../../../assets/stock/mechanic.jpg');   
+  }
+
+  &__second {
+    background-image: url('../../../assets/stock/steering-wheel.jpg');    
+  }
+}
+
+@include respond-between(daddyshark, grandpashark) {
+  .homeimg {
+    &__container {
+      //width: 800px;
+      
+    }
+  }
+}
+
+@include respond-above(daddyshark) {
+  .homeimg {
+    &__container {
+      max-width: var(--max-width);
+      height: 300px;
+    }
+  }
+}
+
+@include respond-below(daddyshark) {
+  .homeimg {
+    &__container {
+      grid-template-columns: 1fr 1fr;
+      height: 300px;
+    }
+  }
+}
+
+@include respond-below(mummyshark) {
+  .homeimg {
+    &__container {
+      height: 200px;
+      padding: 10px;
+    }
+  }
+}
+
+@include respond-below(babyshark) {
+  .homeimg {
+    &__container {
+      height: 400px;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      row-gap: 10px;
+      padding: 0 20px 10px 20px;
+    }
+  }
+}
