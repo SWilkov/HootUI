@@ -74,7 +74,11 @@
     
     &__headline {
       font-size: var(--huge-size-ds);
-      
+      max-width: 80%;
+    }
+
+    &__container {
+      padding: 1em;
     }
   }
 }

@@ -20,11 +20,16 @@
 @include respond-above(daddyshark) {
   .vehicle {
 
-    &__container {
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-      column-gap: 2em;      
+    &__container {      
       max-width: var(--max-width);
+    }
+  }
+}
+
+@include respond-below(mummyshark) {
+  .vehicle {
+    section {
+      padding: 1em ;
     }
   }
 }

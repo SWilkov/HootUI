@@ -17,22 +17,13 @@
     background-repeat: no-repeat;
     background-position: center center;
     border-radius: 15px;
-  }
-
-  &__main {
-    background-image: url('../../../assets/stock/mechanic.jpg');   
-  }
-
-  &__second {
-    background-image: url('../../../assets/stock/steering-wheel.jpg');    
-  }
+  }  
 }
 
 @include respond-between(daddyshark, grandpashark) {
   .homeimg {
     &__container {
-      //width: 800px;
-      
+            
     }
   }
 }

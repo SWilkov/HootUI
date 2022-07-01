@@ -13,12 +13,12 @@
           {{latest.result}}
         </div>
       </div>
-        <div class="motd__item" *ngIf="car.motTestDueDate && car.motTests.length === 0">
+        <div class="motd__item motd__expire" *ngIf="car.motTestDueDate && car.motTests.length === 0">
           <label>MOT Due Date</label>
           <div class="main__result">{{car.motTestDueDate | date: 'longDate'}}</div>
         </div>
 
-        <div class="motd__item" *ngIf="getLatest(car) as latest">
+        <div class="motd__item motd__expire" *ngIf="getLatest(car) as latest">
           <label>MOT Expiry Date</label>
           <div class="main__result">{{latest.expiryDate | date: 'longDate'}}</div>
         </div>
@@ -70,16 +70,9 @@
             </div>
           </ng-template>
         </div>
-      </div>
+      </div>      
+    </div>  
 
-   
-      
-    </div>
-
-    
-     
-
-      
       <div class="motd__tests" *ngIf="car && car.motTests">
         <h3 class="motd__subtitle">MOT History</h3>
         <carid-mot-test [tests]="car.motTests"></carid-mot-test>

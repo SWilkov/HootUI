@@ -11,7 +11,7 @@
               [ngClass]="{ 'main__status--warning': getTaxStatus(dvla.dvlaInfo.taxStatus) === 'Untaxed',
               'main__status--ok': getTaxStatus(dvla.dvlaInfo.taxStatus) === 'Taxed' }">{{dvla.dvlaInfo.taxStatus}}</div>
           </div>
-          <div class="dvlainfo__item">
+          <div class="dvlainfo__item dvlainfo__taxdue">
             <label>Tax due date <span><fa-icon [icon]="faCircleQuestion" [title]="'When the vehicles tax needs renewing'" 
               [styles]="{ 'color': 'var(--brand-green)' }" size="sm"></fa-icon>
             </span></label>

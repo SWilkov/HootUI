@@ -1,3 +1,5 @@
+@import '../../../mixins';
+
 .tests {
   display: flex;
   justify-content: center;
@@ -20,7 +22,7 @@
 
 .test {
   &__details {
-    display: grid;
+    display: none;
     grid-template-columns: 1fr 1fr 20px;
     row-gap: 5px;
     grid-template-rows: 1fr 1fr;
@@ -53,7 +55,7 @@
   }
 
   &__result {
-    font-weight: 300;
+    font-weight: 600;
   }
 
   &__comments {
@@ -66,5 +68,63 @@
   &__comment {
     font-weight: 600;
     letter-spacing: 0.02em;
+  }
+
+  &__mgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+  }
+
+  &__item {
+    label {
+      text-transform: uppercase;     
+      color: rgb(118, 116, 116);
+      font-weight: 500;
+      font-size: 10px;
+    }
+  }
+
+  &__mtext {
+    color: rgb(21, 20, 22);
+    font-weight: 600;
+    font-size: 15px;
+  }
+}
+
+@include respond-above(mummyshark) {
+  .test {
+    &__details {
+      display: grid;
+    }
+
+    &__mdetails {
+      display: none;
+    }
+  }
+}
+
+@include respond-below(mummyshark) {
+  .test {
+    &__details {
+      display: none;
+    }
+
+    &__mdetails {
+      display: grid;
+      grid-template-columns: 1fr 30px;
+      width: 100%;
+    }
+  }
+}
+
+@include respond-below(babyshark) {
+  .test {
+    &__title {
+      display: none;
+    }
+
+    &__mgrid {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 }

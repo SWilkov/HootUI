@@ -1,10 +1,12 @@
 <div class="homeimg">
   <div class="homeimg__container">
-    <div class="homeimg__img homeimg__main">
+    <div class="homeimg__img homeimg__main" *ngIf="mainImageUrl"
+      [ngStyle]="{ 'background-image': main }">
 
     </div>
 
-    <div class="homeimg__img homeimg__second"> 
+    <div class="homeimg__img homeimg__second" 
+    [ngStyle]="{ 'background-image': second }"> 
 
     </div>
   </div>
