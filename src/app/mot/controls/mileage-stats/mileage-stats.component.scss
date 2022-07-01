@@ -1,0 +1,49 @@
+.stats {
+
+  &__container {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__table {
+    border-collapse: collapse;
+    margin: 0 0 20px 0;
+    font-size: 0.9em;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    //box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.stats thead tr {
+  background: linear-gradient(110deg, #0d6c3f 18.73%, #73c49e 63.32%);
+  text-align: center;
+  color: #fff;
+}
+
+.stats th, .stats td {
+  padding: 12px 15px;
+}
+
+.stats td {
+  text-align: center;
+}
+
+.stats tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.stats tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.stats tbody tr:last-of-type {
+  border-bottom: 2px solid var(--brand-color);
+}
+
+.stats tbody tr.active-row {
+  font-weight: bold;
+  color: var(--brand-color);
+}
+

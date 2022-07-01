@@ -9,7 +9,7 @@ import * as dvlaActions from '../../actions/dvla.actions';
 import { DvlaRequest } from '../../models/dvla-request.model';
 import { DvlaInfo } from '../../models/dvla-info.model';
 import { TaxStatus } from '../../enums/tax-status.enum';
-
+import { faCircleQuestion, IconDefinition, faMinus } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'carid-dvla-info',
   templateUrl: './dvla-info.component.html',
@@ -22,6 +22,8 @@ export class DvlaInfoComponent implements OnInit {
 
   dvlaVehicle$: Observable<DvlaVehicle | undefined>;
   dvlaVehicleSubscription: Subscription;
+  faCircleQuestion: IconDefinition = faCircleQuestion;
+  faMinus: IconDefinition = faMinus;
 
   constructor(private store: Store<AppState>) { 
 

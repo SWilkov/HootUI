@@ -27,9 +27,19 @@
         grid-row: 1/3;
         font-size: 0.86em;
         color: var(--brand-color);
+        list-style: none;
+
+        li {
+          margin-bottom: 5px;
+        }
         
         &__link {
           text-decoration: underline;
+          color: var(--brand-color);
+          transition: all 100ms ease-in;
+          &:hover {
+            color: var(--brand-green);
+          }
         }
     }
 

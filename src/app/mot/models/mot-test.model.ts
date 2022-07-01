@@ -1,3 +1,5 @@
+import { TestComment } from "./test-comment.model";
+
 export interface MotTest {
   id: number;
   completedDate: Date;
@@ -7,5 +9,5 @@ export interface MotTest {
   motTestNumber: number;
   odometerResultType: string;
   odometerUnit: string;
-  comments: Comment[];
+  comments: TestComment[];
 }

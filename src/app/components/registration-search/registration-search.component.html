@@ -3,21 +3,16 @@
     <form role="search" [formGroup]="searchForm" id="searchRegistrationForm" 
       class="rs__form"
       (ngSubmit)="search()">
+      
       <div class="rs__search__container">
-        <span class="rs__search__btn">
-          <!-- <button mat-fab color="primary">
-            <mat-icon aria-hidden="false" 
-              aria-label="Example home icon" style="color: rgba(32, 28, 41, 0.8);">search</mat-icon> 
-          </button> -->
-          <fa-icon [icon]="faSearch" size="2x" 
-            [styles]="{'stroke': 'rgba(32, 28, 41, 0.8)', 'color': 'rgba(32, 28, 41, 0.8)'}"></fa-icon>
-        </span>
+        
         <input type="search" id="search-registration-input" name="search-registration-input"
         class="rs__input" formControlName="searchText"  
-          placeholder="AB12XYZ">             
-      </div>     
+          placeholder="ENTER REG..">        
+      </div>  
+      <a class="rs__btn rs__btn--white" (click)="search()"> Search </a> 
     </form>
-    <div class="rs__dvla">
+    <!-- <div class="rs__dvla">
     <mat-checkbox class="rs__check"
       [checked]="includeDvla$ | async"
       (change)="includeDvlaChanged($event)"
@@ -25,6 +20,6 @@
       labelPosition="after">
       include DVLA info
     </mat-checkbox>
-    </div>
+    </div> -->
   </div>
 </div>

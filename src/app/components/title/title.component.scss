@@ -1,0 +1,26 @@
+.title {
+  &__header {
+    padding: 5px 10px;
+    color: var(--brand-color);
+    font-size: 2rem;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: 1px solid var(--brand-color);
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+
+    &--end {
+      align-items: flex-end;
+    }
+  }
+
+  &__subheader {
+    color: var(--brand-dark);
+    font-weight: 600;
+  }
+}

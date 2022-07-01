@@ -4,7 +4,12 @@
   &__container {
     display: flex;
     flex-direction: column;
-  }  
+  }
+  
+  &__registration {
+    background: linear-gradient(116.7deg,#19a563 18.73%,#73c49e 63.32%);
+    padding: 2em 1em;
+  }
 }
 
 @include respond-above(daddyshark) {

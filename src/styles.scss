@@ -2,6 +2,7 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
+  line-height: 28px;
 }
 
 a {
@@ -14,15 +15,17 @@ a:hover {
 
 label {
   text-transform: uppercase;
-  color:rgba(32, 28, 41, 0.65);
+  color:rgba(118, 116, 116, 1);
+  font-weight: 500;
+  font-size: 12px;
 }
 
 .main {
   &__result {
-    color: rgba(32, 28, 41, 1);
+    color: rgb(21, 20, 22);
     font-weight: 600;
     margin-top: 2px;
-    font-size: 1.25em;
+    font-size: 1.4em;
   }
 
   &__status {
@@ -41,6 +44,7 @@ label {
 :root {
   --brand-green: #73c49e;
   --brand-color: rgba(32, 28, 41, 0.8);
+  --brand-dark: rgb(21,21,21);
   --huge-size: 54px;
   --huge-size-ds: 48px;
   --huge-size-ms: 36px;
@@ -48,4 +52,6 @@ label {
 
   --warning: rgb(224, 41, 41);
   --ok: rgb(30, 176, 52);
+
+  --max-width: 1250px;
 }

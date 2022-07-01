@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialLibModule } from '../modules/material-lib.module';
 import { DvlaInfoComponent } from './controls/dvla-info/dvla-info.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ControlsModule } from '../components/controls.module';
 
 const components = [
   DvlaInfoComponent
@@ -20,6 +22,8 @@ const components = [
     HttpClientModule,
     ReactiveFormsModule,
     MaterialLibModule,
+    FontAwesomeModule,
+    ControlsModule
   ],
   exports: [
     ...components
