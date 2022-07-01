@@ -59,3 +59,33 @@
 
 
 }
+
+@include respond-below(mummyshark) {
+  .dvlainfo {
+    &__grid {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__tax {
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr 1fr;
+      padding: 1em 2em;
+      margin: 20px 0;
+    }
+  }
+}
+
+@include respond-below(babyshark) {
+  .dvlainfo {
+    &__tax {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__taxdue {
+      margin-top: 10px;
+    }
+  }
+}

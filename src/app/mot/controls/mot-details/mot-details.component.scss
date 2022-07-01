@@ -65,3 +65,38 @@
     
   }
 }
+
+@include respond-below(mummyshark) {
+  .motd {
+    &__grid {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__latest {
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr 1fr;
+      padding: 1em 2em;
+      margin: 20px 0;
+    }
+
+    &__top-grid {
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+@include respond-below(babyshark) {
+  .motd {
+    &__latest {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__expire {
+      margin-top: 10px;
+    }
+  }
+}
