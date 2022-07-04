@@ -38,20 +38,6 @@ export class VehicleComponent implements OnInit, OnDestroy {
      }
 
   ngOnInit(): void {    
-
-      // this.currentRegistration$ = this.route.paramMap
-      //   .pipe(
-      //     switchMap(params => {
-      //       const registration = params.get('registration');
-
-      //       if (registration) {
-      //         this.store.dispatch(searchActions.setRegistration({payload: registration}));
-      //         return this.store.select(searchSelectors.selectCurrentRegistration);
-      //       }
-      //       return of('');            
-      //     })
-      //   );   
-
       this.currentRegistration$ = this.store.select(searchSelectors.selectCurrentRegistration);
   }
 

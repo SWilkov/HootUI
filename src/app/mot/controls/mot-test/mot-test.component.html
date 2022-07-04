@@ -2,7 +2,7 @@
   <mat-accordion class="tests__panel">
     <mat-expansion-panel *ngFor="let test of tests; index as i"
       [expanded]="step === i" (opened)="goto(i)" hideToggle>
-      <mat-expansion-panel-header>
+      <mat-expansion-panel-header collapsedHeight="100px">
         <mat-panel-title>
           <h3 class="test__result" [ngClass]="{ 'tests__test--ok': test.result === 'PASSED',
           'tests__test--warning': test.result === 'FAILED'}">{{test.result}}</h3>
@@ -28,7 +28,7 @@
               <div class="test__text">{{test.motTestNumber }}</div>
             </div>
 
-            <mat-icon [matBadge]="test.comments.length" matBadgeColor="accent" matBadgeSize="small" *ngIf="test.comments && test.comments.length > 0"
+            <mat-icon [matBadge]="test.comments.length" matBadgeColor="accent" matBadgeSize="small" 
                 class="test__icon">chat</mat-icon>
           </div>
 
