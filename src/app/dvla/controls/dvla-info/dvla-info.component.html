@@ -118,13 +118,24 @@
             </div>
 
             <div class="dvlainfo__emissions__item">
-              <mat-checkbox class="rs__check" disabled="true"
-                [checked]="dvla.automatedVehicle"        
-                color="primary"            
-                labelPosition="after">
-                automated vehicle
-              </mat-checkbox>
-            </div>
+              <label>Euro Status <span><fa-icon [icon]="faCircleQuestion" [title]="'since 1992 the EU has limited the harmful exhaust emissions by classifying the improvements in engine design'" 
+                [styles]="{ 'color': 'var(--brand-green)' }" size="sm"></fa-icon>
+              </span></label>
+              <div class="main__result" *ngIf="dvla.euroStatus; else dash">{{dvla.revenueWeight}} kg</div>
+              <ng-template #dash>
+                <div>
+                  <fa-icon [icon]="faMinus" size="lg"></fa-icon>
+                </div>
+              </ng-template>
+            </div>           
+          </div>
+          <div class="dvlainfo__emissions__automated">
+            <mat-checkbox class="rs__check" disabled="true"
+              [checked]="dvla.automatedVehicle"        
+              color="primary"            
+              labelPosition="after">
+              automated vehicle
+            </mat-checkbox>
           </div>
       </div>
   </div>
