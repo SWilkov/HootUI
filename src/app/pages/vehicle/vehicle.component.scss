@@ -10,10 +10,15 @@
   section {
     padding: 1em 2em;
   }
+
+  &__divider {
+    height: 100px;
+    background-color: #fff;
+  }
   
 }
 
-.vehicle section:last-child {
+.vehicle section:nth-child(3) {
   background-color: rgba(0,0,0,0.03);
 }
 
