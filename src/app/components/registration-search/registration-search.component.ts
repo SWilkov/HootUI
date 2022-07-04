@@ -64,7 +64,7 @@ export class RegistrationSearchComponent implements OnInit, OnDestroy {
     if (this.registration) {
       let cleanRegistration = this.textService.clean(this.registration);
       this.searchForm.controls.searchText?.setValue(cleanRegistration);
-      this.router.navigate([`vehicles/${cleanRegistration}`]);
+      this.router.navigate([`vehicles`]);
     }
    }  
 

@@ -15,7 +15,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'vehicles/:registration',
+    path: 'vehicles',
     component: VehicleComponent    
   }
 ];
