@@ -12,4 +12,9 @@ export interface DvlaVehicle {
   motExpiryDate: Date;
   
   dvlaInfo: DvlaInfo;
+
+  automatedVehicle: boolean;
+  revenueWeight: number;
+  realDrivingEmissions: string;
+  euroStatus: string;
 }

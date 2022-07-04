@@ -176,6 +176,10 @@
       "monthRegistration": "2017-07",
       "motStatus": "Valid",
       "motExpiryDate": "2023-05-22T00:00:00",
+      "automatedVehicle": true,
+      "revenueWeight": 1400,
+      "realDrivingEmissions": "",
+      "euroStatus": "Euro 6",
       "dvlaInfo": {
         "co2Emissions": 124,
         "markedForExport": false,

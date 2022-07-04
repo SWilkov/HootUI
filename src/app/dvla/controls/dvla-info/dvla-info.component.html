@@ -40,15 +40,7 @@
             <label>Fuel Type</label>
             <div class="main__result">{{dvla.fuelType}}</div>
           </div>
-
-          <div class="dvlainfo__item">
-            <label>Co2 Emissions <span><fa-icon [icon]="faCircleQuestion" [title]="'carbon dioxide in grams per kilometer'" 
-              [styles]="{ 'color': 'var(--brand-green)' }" size="sm"></fa-icon>
-            </span></label>
-            <div class="main__result">{{dvla.dvlaInfo.co2Emissions}}
-              
-            </div>
-          </div>
+     
 
           <div class="dvlainfo__item">
             <label>Marked for Export  <span><fa-icon [icon]="faCircleQuestion" [title]="'currently the car is unregistered in the UK or an application has been made for permanent export'" 
@@ -88,9 +80,53 @@
              
             </div>
           </div>
-        </div>
+        </div>       
          
-  </div>
+      </div>
+
+      <div class="dvlainfo__emissions">
+        <carid-title [headerText]="'Emissions data'"
+          [subheaderText]="dvla.registration"></carid-title>
+          <div class="dvlainfo__emissions__container">
+            <div class="dvlainfo__emissions__item">
+              <label>Co2 Emissions <span><fa-icon [icon]="faCircleQuestion" [title]="'carbon dioxide in grams per kilometer'" 
+                [styles]="{ 'color': 'var(--brand-green)' }" size="sm"></fa-icon>
+              </span></label>
+              <div class="main__result">{{dvla.dvlaInfo.co2Emissions}}              
+              </div>
+            </div>
+
+            <div class="dvlainfo__emissions__item">
+              <label>Real Driving Emissions <span><fa-icon [icon]="faCircleQuestion" [title]="'Real world driving emissions standard rather than laboratory manufactured results'" 
+                [styles]="{ 'color': 'var(--brand-green)' }" size="sm"></fa-icon>
+              </span></label>
+              <div class="main__result" *ngIf="dvla.realDrivingEmissions; else dash">{{dvla.realDrivingEmissions}}              
+              </div>
+              <ng-template #dash>
+                <div>
+                  <fa-icon [icon]="faMinus" size="lg"></fa-icon>
+                </div>
+              </ng-template>
+            </div>
+
+            <div class="dvlainfo__emissions__item">
+              <label>Revenue Weight <span><fa-icon [icon]="faCircleQuestion" [title]="'weight of the vehicle fully laden including passengers'" 
+                [styles]="{ 'color': 'var(--brand-green)' }" size="sm"></fa-icon>
+              </span></label>
+              <div class="main__result">{{dvla.revenueWeight}} kg              
+              </div>
+            </div>
+
+            <div class="dvlainfo__emissions__item">
+              <mat-checkbox class="rs__check" disabled="true"
+                [checked]="dvla.automatedVehicle"        
+                color="primary"            
+                labelPosition="after">
+                automated vehicle
+              </mat-checkbox>
+            </div>
+          </div>
+      </div>
   </div>
   <ng-template #nodata>
     <div>
