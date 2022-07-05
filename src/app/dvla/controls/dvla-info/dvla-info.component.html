@@ -1,5 +1,9 @@
 <div class="dvlainfo">
-  <div class="dvlainfo__container" *ngIf="dvlaVehicle$ | async as dvla; else nodata">
+  <div class="dvlainfo__spinner" *ngIf="loading$ | async; else info">
+    <mat-spinner mode="indeterminate" color="primary"></mat-spinner>
+  </div>
+  <ng-template #info class="dvlainfo__container">
+    <div *ngIf="dvlaVehicle$ | async as dvla; else nodata">
     <carid-title [headerText]="'DVLA information'"
     [subheaderText]="dvla.registration"></carid-title>
         
@@ -138,10 +142,12 @@
             </mat-checkbox>
           </div>
       </div>
-  </div>
-  <ng-template #nodata>
-    <div>
-      <h4>No DVLA data yet!</h4>
-    </div>
+      </div>
+      <ng-template #nodata>
+        <div>
+          <h4>No DVLA data yet!</h4>
+        </div>
+      </ng-template>
   </ng-template>
+  
 </div>

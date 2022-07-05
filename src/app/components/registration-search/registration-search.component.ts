@@ -12,6 +12,11 @@ import { faSearch, IconDefinition } from '@fortawesome/free-solid-svg-icons'
 import * as searchActions from '../../actions/search.actions';
 import * as searchSelectors from '../../selectors/search.selector';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+import * as motActions from '../../mot/actions/mot.actions';
+import { MotRequest } from 'src/app/mot/models/mot-request.model';
+import * as dvlaActions from '../../dvla/actions/dvla.actions';
+import { DvlaRequest } from 'src/app/dvla/models/dvla-request.model';
+
 export interface SearchFormProps {
   searchText: FormControl<string|null>;
 }
@@ -36,6 +41,7 @@ export class RegistrationSearchComponent implements OnInit, OnDestroy {
   
   constructor(private store: Store<AppState>,
     private textService: TextService,
+    private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit() {
@@ -64,7 +70,21 @@ export class RegistrationSearchComponent implements OnInit, OnDestroy {
     if (this.registration) {
       let cleanRegistration = this.textService.clean(this.registration);
       this.searchForm.controls.searchText?.setValue(cleanRegistration);
-      this.router.navigate([`vehicles`]);
+
+      this.store.dispatch(searchActions.setRegistration({payload: cleanRegistration }));
+      const req: MotRequest = {
+        registration: cleanRegistration,
+        vehicleId: ''
+      };
+      this.store.dispatch(motActions.loadMot({payload: req}));
+      const dvlaReq: DvlaRequest = {
+        registration: cleanRegistration
+      };
+      this.store.dispatch(dvlaActions.loadDvla({ payload: dvlaReq }));
+      
+      if (this.router.url !== '\vehicles') {
+        this.router.navigate([`vehicles`]);
+      }
     }
    }  
 

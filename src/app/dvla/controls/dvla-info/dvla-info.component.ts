@@ -24,33 +24,15 @@ export class DvlaInfoComponent implements OnInit {
   dvlaVehicleSubscription: Subscription;
   faCircleQuestion: IconDefinition = faCircleQuestion;
   faMinus: IconDefinition = faMinus;
-
+  loading$: Observable<boolean>;
   constructor(private store: Store<AppState>) { 
 
   }
 
   ngOnInit(): void {
     this.currentRegistration$ = this.store.select(searchSelectors.selectCurrentRegistration);
-    this.currentRegistrationSubscription = this.currentRegistration$.subscribe(reg => {
-      if (reg) {
-        this.dvlaVehicle$ = this.store.select(dvlaSelectors.selectByRegistration(reg));
-        this.dvlaVehicleSubscription = this.dvlaVehicle$.subscribe(v => {
-          if (v === undefined || v === null) {
-            let request: DvlaRequest = {
-              registration: reg
-            };
-            this.store.dispatch(dvlaActions.loadDvla({payload: request}));
-          }  
-        });
-      }
-    });
-
-    const req: DvlaRequest = {
-      registration: 'AE15XUX'
-    }
-
-    this.store.dispatch(dvlaActions.loadDvla({payload: req}));
-    this.dvlaVehicle$ = this.store.select(dvlaSelectors.selectByRegistration('GV17XEN'));
+    this.dvlaVehicle$ = this.store.select(dvlaSelectors.selectByRegistration);
+    this.loading$ = this.store.select(dvlaSelectors.selectLoading);    
   }
 
   getTaxStatus = (status: string): TaxStatus => {
