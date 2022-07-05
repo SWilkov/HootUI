@@ -125,7 +125,7 @@
               <label>Euro Status <span><fa-icon [icon]="faCircleQuestion" [title]="'since 1992 the EU has limited the harmful exhaust emissions by classifying the improvements in engine design'" 
                 [styles]="{ 'color': 'var(--brand-green)' }" size="sm"></fa-icon>
               </span></label>
-              <div class="main__result" *ngIf="dvla.euroStatus; else dash">{{dvla.revenueWeight}} kg</div>
+              <div class="main__result" *ngIf="dvla.euroStatus; else dash">{{dvla.euroStatus}}</div>
               <ng-template #dash>
                 <div>
                   <fa-icon [icon]="faMinus" size="lg"></fa-icon>
