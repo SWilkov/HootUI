@@ -39,3 +39,27 @@
     }
   }
 }
+
+@include respond-below(daddyshark) {
+  .pnf {
+    &__title {
+      font-size: var(--huge-size-ds);
+    }
+  }
+}
+
+@include respond-below(mummyshark) {
+  .pnf {
+    &__title {
+      font-size: var(--huge-size-ms);
+    }
+  }
+}
+
+@include respond-below(babyshark) {
+  .pnf {
+    &__title {
+      font-size: var(--huge-size-bs);
+    }
+  }
+}
