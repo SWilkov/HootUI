@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { HTTP_OPTIONS } from '../../models/http-helpers';
 import { Vehicle } from '../models/vehicle.model';
 import { Observable } from 'rxjs';
+import { MotResponse } from '../models/mot-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +21,9 @@ export class MotLookupService {
       .pipe();
   }
 
-  getById = (request: MotRequest): Observable<Vehicle> => {
+  getById = (request: MotRequest): Observable<MotResponse> => {
     let url: string = `${environment.apis.motLookup}/1`;
 
-    return this.http.get<Vehicle>(url, HTTP_OPTIONS).pipe();
+    return this.http.get<MotResponse>(url, HTTP_OPTIONS).pipe();
   }
 }

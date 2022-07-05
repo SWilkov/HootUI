@@ -51,8 +51,9 @@ const {
 
 export const all = (state: MotState) => selectAll(state);
 
-export const getByRegistration = (state: MotState, registration: string) => 
-  selectAll(state).find(x => x.registration.toLowerCase() === registration.toLowerCase());
+export const getByRegistration = (state: MotState, registration: string): Vehicle | undefined => { 
+    return selectAll(state).find(x => x.registration.toLowerCase() === registration.toLowerCase());  
+}
 
 export const getLoading = (state: MotState) => state.loading;
 export const getLoaded = (state: MotState) => state.loaded;

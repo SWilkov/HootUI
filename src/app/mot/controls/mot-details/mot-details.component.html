@@ -1,5 +1,11 @@
 <div class="motd">
-  <div class="motd__container" *ngIf="vehicle$ | async as car; else nodata">   
+  
+  <div class="motd__spinner" *ngIf="loading$ | async; else car">
+    <mat-spinner mode="indeterminate" color="primary"></mat-spinner>
+  </div>
+  
+  <ng-template class="motd__container" #car>   
+    <div class="motd__sub" *ngIf="vehicle$ | async as car; else nodata">
    <carid-title [headerText]="'MOT information'"
     [subheaderText]="car.registration"></carid-title>
 
@@ -49,7 +55,7 @@
 
         <div class="motd__item">
           <label>Registration date</label>
-          <div class="main__result" *ngIf="car.registrationDate; else dash">
+          <div class="main__result motd__text" *ngIf="car.registrationDate; else dash">
             {{car.registrationDate | date: 'longDate'}}
           </div>
           <ng-template #dash>
@@ -61,7 +67,7 @@
   
         <div class="motd__item">
           <label>Manufactured date</label>
-          <div class="main__result" *ngIf="car.manufactureDate; else dash">
+          <div class="main__result motd__text" *ngIf="car.manufactureDate; else dash">
             {{car.manufactureDate | date: 'longDate'}}
           </div>
           <ng-template #dash>
@@ -83,7 +89,8 @@
       <h3 class="motd__subtitle">Mileage Statistics</h3>
       <carid-mileage-stats [stats]="car.mileageStatistics"></carid-mileage-stats>
     </div>
-  </div>  
+  </div> 
+  </ng-template> 
   <ng-template #nodata>
     <div>
       <h5>No MOT Data as of yet!</h5>

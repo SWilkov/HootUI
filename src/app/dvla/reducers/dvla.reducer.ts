@@ -26,7 +26,7 @@ const _dvlaReducer = createReducer(
     })),
   on(dvlaActions.loadDvlaSuccess,
     (state, {payload}) => {
-      return adaptor.setOne(payload, {
+      return adaptor.setOne(payload.data, {
         ...state,
         loading: false,
         loaded: true
@@ -52,7 +52,7 @@ const {
 
 export const all = (state: DvlaState) => selectAll(state);
 
-export const getByRegistration = (state: DvlaState, registration: string) => 
+export const getByRegistration = (state: DvlaState, registration: string): DvlaVehicle | undefined => 
   selectAll(state).find(x => x.registration.toLowerCase() === registration.toLowerCase());
 
 export const getLoading = (state: DvlaState) => state.loading;

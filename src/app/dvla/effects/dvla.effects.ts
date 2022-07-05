@@ -14,7 +14,7 @@ export class DvlaEffects {
   loadDvla$ = createEffect(() => this.actions$
     .pipe(
       ofType(dvlaActions.loadDvla),
-      mergeMap(({payload}) => this.dvlaLookupService.getById(payload)
+      mergeMap(({payload}) => this.dvlaLookupService.get(payload)
         .pipe(
           map((response) => dvlaActions.loadDvlaSuccess({payload: response})),
           catchError((error) => of(dvlaActions.loadDvlaFail({payload: error})))

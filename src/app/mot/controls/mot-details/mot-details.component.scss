@@ -2,8 +2,17 @@
 
 .motd {
   display: flex;
-  &__container {
+  justify-content: center;
+  width: 100%;
+  &__container, &__sub {
     width: 100%;
+  }
+
+  &__spinner {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 2em 0;
   }
 
   &__header {
@@ -30,6 +39,10 @@
   &__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  &__text {
+    font-size: 0.85em;
   }
 
   &__top-grid {    

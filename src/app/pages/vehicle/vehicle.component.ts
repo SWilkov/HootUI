@@ -1,16 +1,12 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, of, Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Vehicle } from 'src/app/mot/models/vehicle.model';
-import { map, switchMap } from 'rxjs/operators';
-import * as motActions from '../../mot/actions/mot.actions';
-import * as motSelectors from '../../mot/selectors/mot.selector';
 import { AppState } from 'src/app/reducers/root-index';
 import { Store } from '@ngrx/store';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import * as searchSelectors from '../../selectors/search.selector';
-import * as searchActions from '../../actions/search.actions';
 @Component({
   selector: 'app-vehicle',
   templateUrl: './vehicle.component.html',
@@ -34,7 +30,7 @@ export class VehicleComponent implements OnInit, OnDestroy {
     private router: Router,
     private title: Title,
     private meta: Meta) {
-      console.log('Vehicle const...');
+      
      }
 
   ngOnInit(): void {    

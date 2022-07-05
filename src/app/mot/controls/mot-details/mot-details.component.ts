@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { AppState } from 'src/app/reducers/root-index';
@@ -15,12 +15,14 @@ import { faMinus, IconDefinition } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './mot-details.component.html',
   styleUrls: ['./mot-details.component.scss']
 })
-export class MotDetailsComponent implements OnInit {
+export class MotDetailsComponent implements OnInit, OnDestroy {
   currentRegistration$: Observable<string>;  
   currentRegistrationSubscription: Subscription;
+  registration: string = '';
 
   vehicle$: Observable<Vehicle | undefined>;
   vehicleSubscription: Subscription;
+  loading$: Observable<boolean>;
 
   faMinus: IconDefinition = faMinus;
 
@@ -29,27 +31,8 @@ export class MotDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentRegistration$ = this.store.select(searchSelectors.selectCurrentRegistration);
-    this.currentRegistrationSubscription = this.currentRegistration$.subscribe(reg => {
-      if (reg) {
-        this.vehicle$ = this.store.select(motSelectors.selectByRegistration(reg));
-        this.vehicleSubscription = this.vehicle$.subscribe(v => {
-          if (v === undefined || v === null) {
-            let request: MotRequest = {
-              registration: reg,
-              vehicleId: ''
-            };
-            this.store.dispatch(motActions.loadMot({payload: request}));         
-          }  
-        });
-      }
-    });
-
-    let req: MotRequest = {
-      registration: '',
-      vehicleId: ''
-    };
-    this.store.dispatch(motActions.loadMot({payload: req}));    
-    this.vehicle$ = this.store.select(motSelectors.selectByRegistration('AE15XUX'));
+    this.vehicle$ = this.store.select(motSelectors.selectByRegistration());    
+    this.loading$ = this.store.select(motSelectors.selectLoading);    
   }
 
   getLatest = (v: Vehicle) => {
@@ -57,5 +40,10 @@ export class MotDetailsComponent implements OnInit {
       return v.motTests[0];
     }
     return null;
+  }
+
+  ngOnDestroy(): void {
+    this.currentRegistrationSubscription?.unsubscribe();
+    this.vehicleSubscription?.unsubscribe();
   }
 }

@@ -10,7 +10,7 @@ export const loadDvla = createAction(
 
 export const loadDvlaSuccess = createAction(
   '[DVLA] load DVLA info success',
-  props<{payload: DvlaVehicle}>()
+  props<{payload: DvlaResponse}>()
 );
 
 export const loadDvlaFail = createAction(

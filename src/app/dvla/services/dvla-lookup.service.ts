@@ -13,13 +13,9 @@ export class DvlaLookupService {
 
   constructor(private http: HttpClient) { }
 
-  get = (registration: string) => {
-    var url: string = environment.apis.dvlaLookup;
-    const req: DvlaRequest = {
-      registration: registration
-    };
-
-    return this.http.post<DvlaResponse>(url,  req, HTTP_OPTIONS).pipe();
+  get = (request: DvlaRequest) => {
+    var url: string = environment.apis.dvlaLookup;    
+    return this.http.post<DvlaResponse>(url,  request, HTTP_OPTIONS).pipe();
   }
 
   getById = (request: DvlaRequest) => {
