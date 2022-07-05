@@ -1,0 +1,41 @@
+@import '../../mixins';
+
+.pnf {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  
+  &__container {
+    width: 100%;
+    padding: 1em 3em;
+  }
+
+  &__title {
+    font-size: var(--huge-size);
+    font-weight: 600;
+    line-height: 1.05em;
+    text-align: center;
+  }
+
+  &__subtitle {
+    font-size: var(--large-size);
+  }
+
+  &__brand {
+    color: var(--brand-green);
+  }
+
+  &__link {
+    color: var(--brand-green);
+    text-decoration: underline;
+  }
+}
+
+@include respond-above(daddyshark) {
+  .pnf {
+    &__container {
+      max-width: var(--max-width);
+    }
+  }
+}

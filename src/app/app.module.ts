@@ -21,6 +21,7 @@ import { MotLookupModule } from './mot/mot-lookup.module';
 import { ControlsModule } from './components/controls.module';
 import { DvlaEffects } from './dvla/effects/dvla.effects';
 import { DvlaModule } from './dvla/dvla.module';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { DvlaModule } from './dvla/dvla.module';
     AppComponent,
     HomeComponent,    
     VehicleComponent,    
-    VehiclesComponent
+    VehiclesComponent, PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

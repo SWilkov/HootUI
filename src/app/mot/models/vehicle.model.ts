@@ -6,7 +6,7 @@ export interface Vehicle {
   registration: string;
   make: string;
   model: string;
-  primaryColor: string;
+  primaryColour: string;
   fuelType: string;
   firstUsedDate: Date;
   motTestDueDate: Date;
